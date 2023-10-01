@@ -1,4 +1,3 @@
-import { computersRouter } from "./computers";
 import { router } from "../trpc";
 import { userRouter } from "./user";
 import { checkoutRouter } from "./checkout";
