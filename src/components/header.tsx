@@ -1,19 +1,19 @@
 "use client";
 
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useBuyCredits } from "@/hooks/use-buy-credits";
+import { signOut, useSession } from "next-auth/react";
+// import { useBuyCredits } from "@/hooks/use-buy-credits";
 import { PrimaryLink } from "./primary-link";
-import SignIn from "./auth/SignIn";
 import { Button } from "./ui/button";
 import LoginButton from "./auth/login-button";
+import { ModeToggle } from "./theme-toggle";
 
 export function Header() {
   const session = useSession();
-  //   const { buyCredits } = useBuyCredits();
+  // const { buyCredits } = useBuyCredits();
 
   const isLoggedIn = !!session.data;
 
-  //   const credits = api.user.getCredits.query(undefined, {
+  //   const credits = api.user.getCredits.usequery(undefined, {
   //     enabled: isLoggedIn,
   //   });
 
@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <header>
-      <div className="fixed z-10 dark:bg-gray-900 container mx-auto flex h-16 items-center justify-between px-4 py-8">
+      <div className="fixed z-10 dark:bg-slate-700 container mx-auto flex h-16 items-center justify-between bg-slate-300 px-4 py-8">
         <PrimaryLink href="/">Icon Generator</PrimaryLink>
         <ul className="flex gap-4">
           <li>
@@ -64,6 +64,7 @@ export function Header() {
             </>
           )}
           {!isLoggedIn && <LoginButton />}
+          <ModeToggle />
         </ul>
       </div>
     </header>

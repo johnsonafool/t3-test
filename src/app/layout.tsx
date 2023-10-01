@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Geologica } from "next/font/google";
+import { Inter } from "next/font/google";
 import NextAuthProvider from "@/lib/auth/Provider";
 import TrpcProvider from "@/lib/trpc/Provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -9,7 +9,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
-const geologica = Geologica({ subsets: ["latin"] });
+// const geologica = Geologica({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={geologica.className}>
+      <body className={inter.className}>
         <NextAuthProvider>
           <TrpcProvider>
             <ThemeProvider
