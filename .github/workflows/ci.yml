@@ -21,10 +21,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node 20
+      - name: Setup Environment Variables
+        run: |
+          cp .env .env.local
+
+      - name: Setup Node
         uses: actions/setup-node@v3
-        with:
-          node-version: 20
 
       - name: Setup bun
         uses: oven-sh/setup-bun@v1
