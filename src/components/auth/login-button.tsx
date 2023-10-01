@@ -2,7 +2,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "../ui/button";
 
-export default function SignIn() {
+export default function LoginButton() {
   const { data: session, status } = useSession();
 
   if (status === "loading") return <div>Loading...</div>;
@@ -19,8 +19,7 @@ export default function SignIn() {
   }
   return (
     <div className="flex flex-row gap-4 items-center justify-center">
-      <div>Not signed in</div>
-      <Button onClick={() => signIn().catch(console.error)}>Sign in</Button>
+      <Button onClick={() => signIn().catch(console.error)}>Log in</Button>
     </div>
   );
 }
