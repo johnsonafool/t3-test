@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <header>
-      <div className="fixed z-10 dark:bg-slate-700 container mx-auto flex h-16 items-center justify-between bg-slate-300 px-4 py-8">
+      <div className="fixed z-10 dark:bg-gray-900 container mx-auto flex h-16 items-center justify-between bg-gray-100 px-4 py-8">
         <PrimaryLink href="/">Icon Generator</PrimaryLink>
         <ul className="flex gap-4">
           <li>
