@@ -10,13 +10,14 @@ import { trpc } from "@/lib/trpc/client";
 
 export function Header() {
   const session = useSession();
+  const isLoggedIn = !!session.data;
   // const { buyCredits } = useBuyCredits();
 
-  const isLoggedIn = !!session.data;
+  // const {data} = trpc.user.getCredits.useQuery(undefined, {
+  //   enabled: isLoggedIn,
+  // });
 
-  const credits = trpc.user.getCredits.useQuery(undefined, {
-    enabled: isLoggedIn,
-  });
+  const credits = { data: 0 };
 
   return (
     <header>
