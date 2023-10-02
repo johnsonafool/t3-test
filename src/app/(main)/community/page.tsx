@@ -1,4 +1,5 @@
 import { Icon } from "@/lib/db/schema/icons";
+import { trpc } from "@/lib/trpc/client";
 import Image from "next/image";
 
 export const metadata = {

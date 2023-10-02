@@ -5,7 +5,6 @@ import { generateRouter } from "./generate";
 import { iconsRouter } from "./icons";
 
 export const appRouter = router({
-  // computers: computersRouter,
   user: userRouter,
   generate: generateRouter,
   checkout: checkoutRouter,

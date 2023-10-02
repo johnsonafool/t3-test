@@ -6,6 +6,7 @@ import { PrimaryLink } from "./primary-link";
 import { Button } from "./ui/button";
 import LoginButton from "./auth/login-button";
 import { ModeToggle } from "./theme-toggle";
+import { trpc } from "@/lib/trpc/client";
 
 export function Header() {
   const session = useSession();
@@ -13,15 +14,13 @@ export function Header() {
 
   const isLoggedIn = !!session.data;
 
-  //   const credits = api.user.getCredits.usequery(undefined, {
-  //     enabled: isLoggedIn,
-  //   });
-
-  const credits = { data: 0 };
+  const credits = trpc.user.getCredits.useQuery(undefined, {
+    enabled: isLoggedIn,
+  });
 
   return (
     <header>
-      <div className="fixed z-10 dark:bg-gray-900 container mx-auto flex h-16 items-center justify-between bg-gray-100 px-4 py-8">
+      <div className="dark:bg-gray-900 container mx-auto flex h-16 items-center justify-between bg-gray-300 px-4 py-8">
         <PrimaryLink href="/">Icon Generator</PrimaryLink>
         <ul className="flex gap-4">
           <li>

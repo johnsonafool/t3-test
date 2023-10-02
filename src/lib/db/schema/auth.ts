@@ -6,6 +6,8 @@ import {
   integer,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccount } from "@auth/core/adapters";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { z } from "zod";
 
 export const users = pgTable("user", {
   id: text("id").notNull().primaryKey(),
@@ -56,3 +58,12 @@ export const verificationTokens = pgTable(
     compoundKey: primaryKey(vt.identifier, vt.token),
   })
 );
+
+// Schema for CRUD - used to validate API requests
+export const insertUserSchema = createInsertSchema(users);
+export const selectUserSchema = createSelectSchema(users);
+export const userIdSchema = selectUserSchema.pick({ id: true });
+
+export type User = z.infer<typeof selectUserSchema>;
+export type NewUser = z.infer<typeof insertUserSchema>;
+export type UserId = z.infer<typeof userIdSchema>["id"];

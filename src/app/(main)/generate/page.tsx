@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { FormGroup } from "@/components/form-group";
-import { api } from "@/lib/trpc/api/client";
+import { trpc } from "@/lib/trpc/client";
 
 const colors = [
   "blue",
@@ -38,7 +38,7 @@ export default function Page() {
   const [error, setError] = useState("");
   const [imagesUrl, setImagesUrl] = useState<{ imageUrl: string }[]>([]);
 
-  const generateIcon = api.generate.generateIcon.useMutation({
+  const generateIcon = trpc.generate.generateIcon.useMutation({
     onSuccess(data) {
       setImagesUrl(data);
     },

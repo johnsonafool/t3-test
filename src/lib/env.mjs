@@ -21,7 +21,14 @@ export const env = createEnv({
     DISCORD_CLIENT_ID: z.string().min(1),
     DISCORD_CLIENT_SECRET: z.string().min(1),
     NEXT_VERCEL_URL: z.string().url().optional(),
+    MOCK_DALLE: z.string().default("true"),
+
+    // Stripe
     NEXT_PUBLIC_STRIPE_KEY: z.string().min(1),
+    STRIPE_SECRET_KEY: z.string().min(1),
+    // STRIPE_WEBHOOK_SECRET: z.string().min(1).optional(),
+    HOST_NAME: z.string().min(1),
+    PRICE_ID: z.string().min(1),
   },
   client: {
     // NEXT_PUBLIC_PUBLISHABLE_KEY: z.string().min(1),
